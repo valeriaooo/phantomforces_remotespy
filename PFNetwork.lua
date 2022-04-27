@@ -57,7 +57,7 @@ local function LookThroughAllTables(table)
     if type(table) == "table" then
         warn(("="):rep(2), tostring(table), ("="):rep(2))
         for i, v in next, table do
-            warn(i, v)
+            warn("-- ", i, v)
             if type(v) == "table" then
                 LookThroughAllTables(v)
             end
