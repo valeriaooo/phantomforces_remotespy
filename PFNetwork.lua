@@ -57,7 +57,7 @@ local function LookThroughAllTables(table)
     if type(table) == "table" then
         warn(("="):rep(2), tostring(table), ("="):rep(2))
         for i, v in next, table do
-            warn("-- ", i, v)
+            warn("-- ", i, v, "type:", tostring(type(v)))
             if type(v) == "table" then
                 LookThroughAllTables(v)
             end
@@ -77,7 +77,7 @@ function network.send(self, action, ...)
     warn('action whitespaces:', ReplaceWhitespace(action))
 
     for i, v in next, arguments do
-        warn(i, v)
+        warn(i, v, "type:", tostring(type(v)))
         if type(v) == "table" then
             LookThroughAllTables(v)
         end
@@ -100,7 +100,7 @@ function network.fetch(self, action, ...)
     warn('action whitespaces:', ReplaceWhitespace(action))
 
     for i, v in next, arguments do
-        warn(i, v)
+        warn(i, v, "type:", tostring(type(v)))
         if type(v) == "table" then
             if type(v) == "table" then
                 LookThroughAllTables(v)
