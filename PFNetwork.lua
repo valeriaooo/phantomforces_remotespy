@@ -102,9 +102,7 @@ function network.fetch(self, action, ...)
     for i, v in next, arguments do
         warn(i, v, "type:", tostring(type(v)))
         if type(v) == "table" then
-            if type(v) == "table" then
-                LookThroughAllTables(v)
-            end
+            LookThroughAllTables(v)
         end
     end
 
